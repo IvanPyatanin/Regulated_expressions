@@ -1,0 +1,12 @@
+#функция преобразования list в str
+    # listtostr = ''.join(map(str, contacts_list))
+    for i in contacts_list:
+        # listtostr = ' '.join(i)
+        listtostr = ','.join(i)
+        print(listtostr)
+
+#Приведение к общему формату номеров телефона
+pattern = re.compile(r"(\+7|8)?\s*\(?(\d{3})\)?[\-]?\s?(\d{3})\-?(\d{2})\-?(\d{2})\s?\(?([д][о][б])?([\.])?\s?(\d{4})?\)?")
+subst = "+7(\\2)\\3-\\4-\\5 \\6\\7\\8"
+# result = re.sub(pattern, subst, listtostr, 0, re.MULTILINE | re.IGNORECASE)
+result = pattern.sub(subst, listtostr)
